@@ -30,15 +30,15 @@ export default function SingleOrderPage() {
 
   useEffect(() => {
     const fetchOrderById = async (id) => {
-      try {
-        const order = await commerce.customer.getOrder(id, customer.id);
+      // try {
+      //   const order = await commerce.customer.getOrder(id, customer.id);
 
-        setLoading(false);
-        setData(order.data);
-      } catch (err) {
-        setLoading(false);
-        setError(err?.message);
-      }
+      //   setLoading(false);
+      //   setData(order.data);
+      // } catch (err) {
+      setLoading(false);
+      setError(err?.message);
+      // }
     };
 
     fetchOrderById(id);
@@ -205,7 +205,7 @@ export default function SingleOrderPage() {
             <div className="col-12">
               {/* Breadcrumbs */}
               <div className="d-flex pb-4 breadcrumb-container">
-                <Link href="/account">
+                <Link href="/account" as={process.env.BACKEND_URL + "/account"}>
                   <div className="font-size-caption text-decoration-underline cursor-pointer">
                     Account
                   </div>

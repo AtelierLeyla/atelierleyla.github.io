@@ -182,7 +182,10 @@ class CustomerAccountPage extends Component {
               <tr key={order.id}>
                 <td>
                   <div>
-                    <Link href={`account/${order.id}`}>
+                    <Link
+                      href={`account/${order.id}`}
+                      as={process.env.BACKEND_URL + `account/${order.id}`}
+                    >
                       <a>#{order.customer_reference}</a>
                     </Link>
                   </div>
@@ -192,7 +195,10 @@ class CustomerAccountPage extends Component {
                 <td>{this.getFulfillmentStatus(order.status_fulfillment)}</td>
                 <td>{order.order_value.formatted_with_symbol}</td>
                 <td>
-                  <Link href={`account/${order.id}`}>
+                  <Link
+                    href={`account/${order.id}`}
+                    as={process.env.BACKEND_URL + `account/${order.id}`}
+                  >
                     <a>View order</a>
                   </Link>
                 </td>

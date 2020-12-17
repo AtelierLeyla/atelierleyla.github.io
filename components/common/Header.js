@@ -146,7 +146,7 @@ class Header extends Component {
           {customer && customer.firstname && (
             <span className="mr-2 font-weight-regular">Hi, {customer.firstname}!</span>
           )}
-          <Link href="/account">
+          <Link href="/account" as={process.env.BACKEND_URL + "/account"}>
             <a className="font-color-black mx-2">My account</a>
           </Link>
           <button
@@ -161,7 +161,7 @@ class Header extends Component {
     }
 
     return (
-      <Link href="/login">
+      <Link href="/login" as={process.env.BACKEND_URL + "/login"}>
         <a className="font-color-black login">Login</a>
       </Link>
     );
@@ -181,12 +181,12 @@ class Header extends Component {
           }`}
         >
           <div className="d-none d-sm-flex">
-            <Link href="/collection">
+            <Link href="/collection" as={process.env.BACKEND_URL + "/collection"}>
               <a href="/collection" className="mr-4 font-color-black">
                 Shop
               </a>
             </Link>
-            <Link href="/about">
+            <Link href="/about" as={process.env.BACKEND_URL + "/about"}>
               <a href="/about" className="font-color-black">
                 About
               </a>
@@ -199,7 +199,7 @@ class Header extends Component {
               className="w-32 mr-1 d-block d-sm-none"
               alt="Menu icon"
             />
-            <Link href="/">
+            <Link href="/" as={process.env.BACKEND_URL + "/"}>
               <a className="mr-6 font-weight-bold font-color-black">
                 Atelier Leyla
                 {/* <img src="/images/Logo.jpg" className="logo cursor-pointer" alt="Logo" /> */}

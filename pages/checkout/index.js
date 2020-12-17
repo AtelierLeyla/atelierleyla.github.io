@@ -404,75 +404,75 @@ class CheckoutPage extends Component {
     // case we allow Stripe.js to handle this verification, then re-submit
     // `checkout.capture()` using the payment method ID or payment intent ID returned at
     // each step.
-    if (this.state.selectedGateway === "stripe") {
-      // Create a new Payment Method in Stripe.js
-      return this.props.stripe
-        .createPaymentMethod({
-          type: "card",
-          card: this.props.elements.getElement(CardElement),
-        })
-        .then((response) => {
-          // Check for errors from using Stripe.js, surface to the customer if found
-          if (response.error) {
-            this.handleCaptureError(response.error.message);
-            return;
-          }
+    // if (this.state.selectedGateway === "stripe") {
+    //   // Create a new Payment Method in Stripe.js
+    //   return this.props.stripe
+    //     .createPaymentMethod({
+    //       type: "card",
+    //       card: this.props.elements.getElement(CardElement),
+    //     })
+    //     .then((response) => {
+    //       // Check for errors from using Stripe.js, surface to the customer if found
+    //       if (response.error) {
+    //         this.handleCaptureError(response.error.message);
+    //         return;
+    //       }
 
-          // Enable loading state now that we're finished interacting with Elements
-          this.setState({
-            loading: true,
-          });
+    //       // Enable loading state now that we're finished interacting with Elements
+    //       this.setState({
+    //         loading: true,
+    //       });
 
-          // Get the payment method ID and continue with the capture request
-          this.props
-            .dispatchCaptureOrder(this.props.checkout.id, {
-              ...newOrder,
-              payment: {
-                ...newOrder.payment,
-                stripe: {
-                  payment_method_id: response.paymentMethod.id,
-                },
-              },
-            })
-            // If no further verification is required, go straight to the "success" handler
-            .then(this.handleCaptureSuccess)
-            .catch((error) => {
-              // Look for "requires further verification" from the Commerce.js backend. This
-              // will be surfaced as a 402 Payment Required error, with a unique type, and
-              // the secret you need to continue verifying the transaction on the frontend.
-              if (error.data.error.type !== "requires_verification") {
-                this.handleCaptureError(error);
-                return;
-              }
+    //       // Get the payment method ID and continue with the capture request
+    //       this.props
+    //         .dispatchCaptureOrder(this.props.checkout.id, {
+    //           ...newOrder,
+    //           payment: {
+    //             ...newOrder.payment,
+    //             stripe: {
+    //               payment_method_id: response.paymentMethod.id,
+    //             },
+    //           },
+    //         })
+    //         // If no further verification is required, go straight to the "success" handler
+    //         .then(this.handleCaptureSuccess)
+    //         .catch((error) => {
+    //           // Look for "requires further verification" from the Commerce.js backend. This
+    //           // will be surfaced as a 402 Payment Required error, with a unique type, and
+    //           // the secret you need to continue verifying the transaction on the frontend.
+    //           if (error.data.error.type !== "requires_verification") {
+    //             this.handleCaptureError(error);
+    //             return;
+    //           }
 
-              this.props.stripe.handleCardAction(error.data.error.param).then((result) => {
-                // Check for errors from Stripe, e.g. failure to confirm verification of the
-                // payment method, or the card was declined etc
-                if (result.error) {
-                  this.handleCaptureError(result.error.message);
-                  return;
-                }
+    //           this.props.stripe.handleCardAction(error.data.error.param).then((result) => {
+    //             // Check for errors from Stripe, e.g. failure to confirm verification of the
+    //             // payment method, or the card was declined etc
+    //             if (result.error) {
+    //               this.handleCaptureError(result.error.message);
+    //               return;
+    //             }
 
-                // Verification has successfully been completed. Get the payment intent ID
-                // from the Stripe.js response and re-submit the Commerce.js
-                // `checkout.capture()` request with it
-                this.props
-                  .dispatchCaptureOrder(this.props.checkout.id, {
-                    ...newOrder,
-                    payment: {
-                      ...newOrder.payment,
-                      stripe: {
-                        payment_intent_id: result.paymentIntent.id,
-                      },
-                    },
-                  })
-                  .then(this.handleCaptureSuccess)
-                  .catch(this.handleCaptureError);
-              });
-            });
-        })
-        .catch(this.handleCaptureError);
-    }
+    //             // Verification has successfully been completed. Get the payment intent ID
+    //             // from the Stripe.js response and re-submit the Commerce.js
+    //             // `checkout.capture()` request with it
+    //             this.props
+    //               .dispatchCaptureOrder(this.props.checkout.id, {
+    //                 ...newOrder,
+    //                 payment: {
+    //                   ...newOrder.payment,
+    //                   stripe: {
+    //                     payment_intent_id: result.paymentIntent.id,
+    //                   },
+    //                 },
+    //               })
+    //               .then(this.handleCaptureSuccess)
+    //               .catch(this.handleCaptureError);
+    //           });
+    //         });
+    //     })
+    //     .catch(this.handleCaptureError);
+    // }
 
     // Capture the order
     this.props
@@ -557,7 +557,7 @@ class CheckoutPage extends Component {
             <div className="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-0">
               {/* Breadcrumbs */}
               <div className="d-flex pb-4 breadcrumb-container">
-                <Link href="/collection">
+                <Link href="/collection" as={process.env.BACKEND_URL + "/collection"}>
                   <div className="font-size-caption text-decoration-underline cursor-pointer">
                     Cart
                   </div>
@@ -734,13 +734,14 @@ CheckoutPage.propTypes = {
 // `elements` as props.
 const InjectedCheckoutPage = (passProps) => {
   return (
-    <Elements stripe={passProps.stripe}>
-      <ElementsConsumer>
-        {({ elements, stripe }) => (
-          <CheckoutPage {...passProps} stripe={stripe} elements={elements} />
-        )}
-      </ElementsConsumer>
-    </Elements>
+    <div>Coming Soon!</div>
+    // <Elements stripe={passProps.stripe}>
+    //   <ElementsConsumer>
+    //     {({ elements, stripe }) => (
+    //       <CheckoutPage {...passProps} stripe={stripe} elements={elements} />
+    //     )}
+    //   </ElementsConsumer>
+    // </Elements>
   );
 };
 
