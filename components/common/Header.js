@@ -200,8 +200,9 @@ class Header extends Component {
               alt="Menu icon"
             />
             <Link href="/">
-              <a>
-                <img src="/images/commerce.svg" className="logo cursor-pointer" alt="Logo" />
+              <a className="mr-6 font-weight-bold font-color-black">
+                Atelier Leyla
+                {/* <img src="/images/Logo.jpg" className="logo cursor-pointer" alt="Logo" /> */}
               </a>
             </Link>
           </div>
