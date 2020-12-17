@@ -1,5 +1,5 @@
-import commerce from '../../lib/commerce'
-import { CLEAR_CUSTOMER, SET_CUSTOMER } from './actionTypes';
+// import commerce from '../../lib/commerce'
+import { CLEAR_CUSTOMER, SET_CUSTOMER } from "./actionTypes";
 
 /**
  * Fetch the customer information from Commerce.js. If the customer is not
@@ -7,23 +7,27 @@ import { CLEAR_CUSTOMER, SET_CUSTOMER } from './actionTypes';
  */
 export const setCustomer = () => (dispatch) => {
   // First check is customer is logged in and just return out if they're not
-  const isLoggedIn = commerce.customer.isLoggedIn();
+  const isLoggedIn = false; //commerce.customer.isLoggedIn();
   if (!isLoggedIn || isLoggedIn === false) {
     return Promise.resolve(null);
   }
-  return commerce.customer.about().then((customer) => {
-    dispatch({ type: SET_CUSTOMER, payload: customer.data })
-  }).catch(() => {
-    // Most likely a 404, meaning the customer doesn't exist. It should be logged out
-    commerce.customer.logout();
-    dispatch({ type: SET_CUSTOMER, payload: null })
-  });
-}
+  // return;
+  // commerce.customer
+  // .about()
+  // .then((customer) => {
+  // dispatch({ type: SET_CUSTOMER, payload: customer.data });
+  // })
+  // .catch(() => {
+  // Most likely a 404, meaning the customer doesn't exist. It should be logged out
+  // commerce.customer.logout();
+  dispatch({ type: SET_CUSTOMER, payload: null });
+  // });
+};
 
 /**
  * Clear the logged in customer from state, and from Commerce.js.
  */
 export const clearCustomer = () => (dispatch) => {
-  commerce.customer.logout();
+  // commerce.customer.logout();
   dispatch({ type: CLEAR_CUSTOMER });
-}
+};
