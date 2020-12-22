@@ -1408,6 +1408,15 @@ header {
     top: 0.5rem;
     margin-right: 1rem; }
 
+.footer-background {
+  background: #fef9f7; }
+
+.footer-text-links {
+  color: #b4b1b2; }
+  .footer-text-links:hover {
+    color: black;
+    transition: all 0.3s ease-in-out; }
+
 .mobile-menu-inner {
   padding: 7rem 1.5rem; }
 
@@ -1453,6 +1462,9 @@ header {
 
 .hero-section .hero-btn {
   text-shadow: 1px 1px 3px rgba(33, 33, 33, 0.5); }
+
+.slogan-container {
+  background-color: #fef9f7; }
 
 @keyframes border {
   0% {
@@ -1524,28 +1536,31 @@ header {
           padding-left: 0;
           padding-right: 0; } }
       .about-container .row .row-content .cjs-link {
-        color: #2C7EA1;
+        color: #ffffff;
         font-weight: bold; }
         .about-container .row .row-content .cjs-link:hover {
-          color: #215f79;
+          color: #e6e6e6;
           transition: all 0.3s ease-in-out; }
   .about-container .about-cjs .about-doc {
-    background: #2C7EA1;
+    background: #ffffff;
     margin-right: 20px; }
   .about-container .about-cjs .about-dev {
-    background-color: #fff;
-    color: #2C7EA1;
-    border: 1px solid #2C7EA1; }
+    background-color: #ffffff;
+    color: #ffffff;
+    border: 1px solid #ffffff; }
   .about-container .about-net {
-    background-color: #29A38A; }
+    background-color: #ffffff; }
   .about-container .about-gb {
-    background-color: #283341; }
+    background-color: #ffffff; }
   .about-container .about-blog {
-    background-color: #254E81;
+    background-color: #ffffff;
     width: 140px; }
-  @media (max-width: 576px) {
-    .about-container .about-image img {
-      display: none; } }
+  .about-container .about-image img {
+    width: 100%;
+    object-fit: contain; }
+    @media (max-width: 576px) {
+      .about-container .about-image img {
+        display: none; } }
 
 .login-container {
   min-height: calc(100vh - 430px); }
@@ -1620,7 +1635,7 @@ header {
     margin-bottom: -1.5rem;
     flex-grow: 3;
     max-width: 60%;
-    margin-left: 40%; } }
+    margin-left: 35%; } }
 
 .footer-follow .footer-follow--images {
   margin: 0 -1rem; }
