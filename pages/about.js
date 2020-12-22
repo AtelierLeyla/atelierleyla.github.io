@@ -11,19 +11,22 @@ const About = () => (
           <div className="h-100 d-flex flex-column py-5 px-4 px-sm-5 justify-content-center">
             <h2 className="font-size-header mb-4">Philosophy</h2>
             <h4 className="font-size-subheader mb-4">
-              Atelier Leyla’s vision is to create products that will not be detrimental to the
-              environment and provide an alternative to fast fashion! Our mission is to create
-              timeless garments that are both ethically and sustainably made using recycled and
-              organic fabrics.
+              As far back as I can remember I wanted to be a fashion designer and creating beautiful
+              garments was my childhood dream. In 2005, I first started learning about global
+              warming and have since been more aware of the issue that we face globally. So, when I
+              became more serious about starting my own brand, I knew it had to be both sustainable
+              and ethical. Our aesthetic ranges from casual chic to business casual with neutrals
+              and some bold colours. We use organic and recycled linen, tencel, cotton, and wool to
+              create looks that are effortless, yet fashionable! Natural fibres feel great to the
+              touch and are better for the environment and they can be used without damaging the
+              environment.
             </h4>
           </div>
         </div>
 
         <div className="col-12 col-lg-6">
-          <div className="about-image h-100">
-            <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/cjs-illustration.svg" alt="Commerce.js illustration" />
-            </div>
+          <div className="about-image">
+            <img src="/images/about/about-2.jpg" alt="Commerce.js illustration" />
           </div>
         </div>
       </div>
@@ -31,10 +34,8 @@ const About = () => (
       {/* Row 2 */}
       <div className="row">
         <div className="col-12 col-lg-6">
-          <div className="about-image h-100">
-            <div className="d-flex align-items-center justify-content-center h-100">
-              <img src="/cjs-illustration.svg" alt="Commerce.js illustration" />
-            </div>
+          <div className="about-image">
+            <img src="/images/about/about-1.jpg" alt="Commerce.js illustration" />
           </div>
         </div>
 
@@ -50,9 +51,8 @@ const About = () => (
             <h4 className="font-size-subheader mb-4">
               - renewable, biodegradable that are available No mass production, minimal inventory
             </h4>
-            <h4 className="font-size-subheader mb-4">- Made-to-order to reduce waste</h4>
             <h4 className="font-size-subheader mb-4">
-              - slow fashion Packaging is biodegradable and recyclable
+              - Made-to-order to reduce waste low fashion Packaging is biodegradable and recyclable
             </h4>
           </div>
         </div>

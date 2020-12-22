@@ -16,18 +16,18 @@
     .row-content {
       padding-left: 3rem;
       padding-right: 3rem;
-  
+
       @include small-xs {
         padding-left: 0;
         padding-right: 0;
       }
 
       .cjs-link {
-        color: #2C7EA1;
+        color: $leyla-background;
         font-weight: bold;
 
-        &:hover{
-          color: darken(#2C7EA1, 10%);
+        &:hover {
+          color: darken($leyla-background, 10%);
           transition: all 0.3s ease-in-out;
         }
       }
@@ -36,34 +36,36 @@
 
   .about-cjs {
     .about-doc {
-      background: #2C7EA1;
+      background: $leyla-background;
       margin-right: 20px;
     }
-  
+
     .about-dev {
-      background-color: #fff;
-      color: #2C7EA1;
-      border: 1px solid #2C7EA1;
+      background-color: $leyla-background;
+      color: $leyla-background;
+      border: 1px solid $leyla-background;
     }
   }
 
   .about-net {
-    background-color: #29A38A;
+    background-color: $leyla-background;
   }
 
   .about-gb {
-    background-color: #283341;
+    background-color: $leyla-background;
   }
 
   .about-blog {
-    background-color: #254E81;
+    background-color: $leyla-background;
     width: 140px;
   }
 
   .about-image {
     img {
+      width: 100%;
+      object-fit: contain;
       @include small-xs {
-       display: none;
+        display: none;
       }
     }
   }

@@ -10,7 +10,7 @@ const params = {
     delay: 5000,
   },
   loop: true,
-  allowTouchMove: false,
+  allowTouchMove: true,
   speed: 1000,
   effect: "fade",
   fadeEffect: {
@@ -18,10 +18,10 @@ const params = {
   },
 };
 const images = [
-  "/images/home-1.jpg",
-  "/images/home-2.jpg",
-  "/images/home-3.jpg",
-  "/images/home-4.jpg",
+  "/images/carousel/carousel-1.jpg",
+  "/images/carousel/carousel-2.jpg",
+  "/images/carousel/carousel-3.jpg",
+  "/images/carousel/carousel-4.jpg",
 ];
 
 export default class HeroSection extends Component {
@@ -37,12 +37,12 @@ export default class HeroSection extends Component {
                   backgroundImage: `url("${image}")`,
                 }}
               >
-                <p className="font-size-display5 font-family-secondary mb-4 text-center hero-header">
-                  The care you've always needed
+                {/* <p className="font-size-display5 font-family-secondary mb-4 text-center hero-header">
+                  Atelier Leyla
                 </p>
                 <p className="text-transform-uppercase font-size-title mb-5 hero-subheader">
                   A range of products for you
-                </p>
+                </p> */}
                 <Link href="/collection" as={process.env.BACKEND_URL + "/collection"}>
                   <a className="d-flex align-items-center bg-transparent border border-color-white h-56 px-5 font-color-white hero-btn">
                     Shop now

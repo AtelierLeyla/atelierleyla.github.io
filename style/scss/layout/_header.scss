@@ -54,6 +54,18 @@ header {
   }
 }
 
+.footer-background {
+  background: $leyla-light;
+}
+
+.footer-text-links {
+  color: $leyla-grey;
+  &:hover {
+    color: darken($leyla-dark, 10%);
+    transition: all 0.3s ease-in-out;
+  }
+}
+
 .mobile-menu-inner {
   padding: 7rem 1.5rem;
 }
