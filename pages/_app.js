@@ -1,14 +1,14 @@
 /* global process */
-import App from 'next/app';
-import React from 'react';
-import '../style/scss/style.scss';
-import { wrapper } from '../store';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
-import commerce from '../lib/commerce';
-import collections from '../lib/collections';
-import { loadStripe } from '@stripe/stripe-js';
-import { setCustomer } from '../store/actions/authenticateActions';
+import App from "next/app";
+import React from "react";
+import "../style/scss/style.scss";
+import { wrapper } from "../store";
+import { compose } from "redux";
+import { connect } from "react-redux";
+// import commerce from '../lib/commerce';
+import collections from "../lib/collections";
+// import { loadStripe } from '@stripe/stripe-js';
+import { setCustomer } from "../store/actions/authenticateActions";
 
 class MyApp extends App {
   constructor(props) {
@@ -16,53 +16,48 @@ class MyApp extends App {
 
     // If using Stripe, initialise it here. This allows Stripe to track behaviour
     // as much as possible in order to determine fraud risk.
-    this.stripePromise = null;
-    if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) { // has API key
-        this.stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-    }
+    // this.stripePromise = null;
+    // if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) { // has API key
+    //     this.stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+    // }
   }
 
-  stripePromise = null;
+  // stripePromise = null;
 
   componentDidMount() {
     this.props.setCustomer();
   }
 
-  static async getInitialProps({ Component, ctx }) {
-    // Fetch data on load
-    // Fetch categories
-    const categoriesResponse = await commerce.categories.list();
+  // static async getInitialProps({ Component, ctx }) {
+  //   // Fetch data on load
+  //   // Fetch categories
+  //   // const categoriesResponse = await commerce.categories.list();
 
-    // Match static data record to API data to find category name
-    const categories = categoriesResponse.data.map(item => ({
-      ...collections.find(data => data.slug === item.slug),
-      ...item,
-    }));
+  //   // Match static data record to API data to find category name
+  //   // const categories = categoriesResponse.data.map((item) => ({
+  //   //   ...collections.find((data) => data.slug === item.slug),
+  //   //   ...item,
+  //   // }));
 
-    // Fetch products
-    const { data: products } = await commerce.products.list();
+  //   // Fetch products
+  //   // const { data: products } = await commerce.products.list();
 
-    // Allows store to be updated via the dispatch action
-    ctx.store.dispatch({ type: 'STORE_CATEGORIES', payload: categories });
-    ctx.store.dispatch({ type: 'STORE_PRODUCTS', payload: products });
+  //   // Allows store to be updated via the dispatch action
+  //   // ctx.store.dispatch({ type: "STORE_CATEGORIES", payload: categories });
+  //   // ctx.store.dispatch({ type: "STORE_PRODUCTS", payload: products });
 
-    return {
-      pageProps: {
-        // Call page-level getInitialProps
-        ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
-      }
-    };
-  }
+  //   return {
+  //     pageProps: {
+  //       // Call page-level getInitialProps
+  //       ...(Component.getInitialProps ? await Component.getInitialProps(ctx) : {}),
+  //     },
+  //   };
+  // }
 
   render() {
     const { Component, pageProps } = this.props;
 
-    return (
-      <Component
-        {...pageProps}
-        stripe={this.stripePromise}
-      />
-    );
+    return <Component {...pageProps} /*stripe={this.stripePromise}*/ />;
   }
 }
 

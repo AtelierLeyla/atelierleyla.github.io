@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Root from '../../components/common/Root';
-import Link from 'next/link';
-import { connect } from 'react-redux';
-import { withRouter } from 'next/router';
+import React, { Component } from "react";
+import Root from "../../components/common/Root";
+import Link from "next/link";
+import { connect } from "react-redux";
+import { withRouter } from "next/router";
 
 class Confirm extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Confirm extends Component {
 
   componentDidMount() {
     if (!this.props.orderReceipt) {
-      this.props.router.push('/');
+      this.props.router.push("/");
     }
   }
 
@@ -27,7 +27,7 @@ class Confirm extends Component {
   }
 
   renderPrintButton() {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return null;
     }
 
@@ -37,7 +37,7 @@ class Confirm extends Component {
         className="d-flex align-items-center text-decoration-underline cursor-pointer mt-3 mt-sm-0 no-print bg-transparent"
         role="button"
       >
-        <img src="/icon/print.svg" className="mr-2 w-20 no-print"/>
+        <img src="/icon/print.svg" className="mr-2 w-20 no-print" />
         <div className="no-print">Print receipt</div>
       </button>
     );
@@ -81,9 +81,7 @@ class Confirm extends Component {
 
     return (
       <div className="d-flex justify-content-between align-items-center mb-2 pt-3 border-top border-color-black">
-        <p className="font-size-title font-weight-semibold">
-          Order total
-        </p>
+        <p className="font-size-title font-weight-semibold">Order total</p>
         <p className="text-right font-weight-semibold font-size-title">
           ${orderReceipt.order.total.formatted_with_code}
         </p>
@@ -95,7 +93,7 @@ class Confirm extends Component {
     const { orderReceipt } = this.props;
 
     if (!orderReceipt) {
-      return '';
+      return "";
     }
 
     return (
@@ -106,24 +104,24 @@ class Confirm extends Component {
             <div className="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-0">
               <div className="h-100 d-flex flex-column align-items-center justify-content-center py-5 px-4 px-sm-5">
                 <div className="bg-success700 h-64 w-64 d-flex rounded-circle align-items-center justify-content-center mb-4">
-                  <img src="/icon/check.svg" className="w-40"/>
+                  <img src="/icon/check.svg" className="w-40" />
                 </div>
                 <h3 className="text-center font-family-secondary mb-3">
                   Thank you for your purchase!
                 </h3>
                 <h4 className="text-center font-size-subheader mb-3">
-                Your order completed successfully
+                  Your order completed successfully
                 </h4>
                 <p className="text-center font-color-light mb-5">
                   Here is your order number for reference: {orderReceipt.customer_reference}
                 </p>
                 <div className="d-flex w-100 justify-content-center flex-column flex-sm-row">
-                  <Link href="/">
+                  <Link href="/" as={process.env.BACKEND_URL + "/"}>
                     <button className="checkout-confirm-buttons h-48 px-3 flex-grow-1 border bg-white border-color-gray500 font-color-light mb-2 mb-sm-0 mr-sm-2 no-print">
                       Go back home
                     </button>
                   </Link>
-                  <Link href="/collection">
+                  <Link href="/collection" as={process.env.BACKEND_URL + "/collection"}>
                     <button className="checkout-confirm-buttons h-48 px-3 flex-grow-1 bg-black font-color-white no-print">
                       Continue shopping
                     </button>
@@ -142,18 +140,20 @@ class Confirm extends Component {
                       </p>
                       <p className="font-size-subheader">Order details</p>
                     </div>
-                    { this.renderPrintButton() }
+                    {this.renderPrintButton()}
                   </div>
                   <div className="border-bottom border-color-gray400 d-flex align-items-start py-4 flex-column flex-sm-row">
                     <div>
-                      <p className="font-color-light mr-4 mb-3 mb-sm-0">
-                        Ships to
-                      </p>
+                      <p className="font-color-light mr-4 mb-3 mb-sm-0">Ships to</p>
                     </div>
                     <div className="flex-grow-1">
                       <p className="font-color-medium">{orderReceipt.shipping.street}</p>
-                      <p className="font-color-medium">{orderReceipt.shipping.town_city}, {orderReceipt.shipping.country_state}</p>
-                      <p className="font-color-medium">{orderReceipt.shipping.postal_zip_code}, {orderReceipt.shipping.country}</p>
+                      <p className="font-color-medium">
+                        {orderReceipt.shipping.town_city}, {orderReceipt.shipping.country_state}
+                      </p>
+                      <p className="font-color-medium">
+                        {orderReceipt.shipping.postal_zip_code}, {orderReceipt.shipping.country}
+                      </p>
                     </div>
                   </div>
                   <div className="py-4 borderbottom border-color-gray400">
@@ -163,12 +163,12 @@ class Confirm extends Component {
                           <p className="mb-2 font-weight-medium">
                             {item.quantity} x {item.product_name}
                           </p>
-                          { item.variants.length > 0 && (
+                          {item.variants.length > 0 && (
                             /* todo support multiple variants here */
                             <p className="font-color-light">
                               {item.variants[0].variant_name}: {item.variants[0].option_name}
                             </p>
-                          ) }
+                          )}
                         </div>
                         <div className="text-right font-weight-semibold">
                           {item.line_total.formatted_with_symbol}
@@ -177,9 +177,9 @@ class Confirm extends Component {
                     ))}
                   </div>
 
-                  { this.renderSubtotal() }
-                  { this.renderShippingTotal() }
-                  { this.renderTotal() }
+                  {this.renderSubtotal()}
+                  {this.renderShippingTotal()}
+                  {this.renderTotal()}
                 </div>
               </div>
             </div>
@@ -190,4 +190,4 @@ class Confirm extends Component {
   }
 }
 
-export default withRouter(connect(state => state)(Confirm));
+export default withRouter(connect((state) => state)(Confirm));
