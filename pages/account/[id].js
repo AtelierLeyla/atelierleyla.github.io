@@ -146,7 +146,7 @@ export default function SingleOrderPage() {
     return (
       <Root>
         <Head>
-          <title>commerce</title>
+          <title>Error</title>
         </Head>
         <div className="py-5 my-5 text-center">
           <h4 className="mt-4">{data.message}</h4>
@@ -197,7 +197,7 @@ export default function SingleOrderPage() {
   return (
     <Root>
       <Head>
-        <title>{data.customer_reference} | commerce</title>
+        <title>{data.customer_reference} | Order</title>
       </Head>
       <div className="account-container">
         <div className="custom-container py-5 my-4 my-sm-5">

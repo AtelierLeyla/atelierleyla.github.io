@@ -12,7 +12,7 @@ import ProductsBanner from "../components/homepage/ProductsBanner";
 const Home = () => (
   <Root transparentHeader={true}>
     <Head>
-      <title>Home | AtelierLeyla</title>
+      <title>AtelierLeyla</title>
     </Head>
 
     <HeroSection />

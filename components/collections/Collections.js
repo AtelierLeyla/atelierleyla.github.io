@@ -141,7 +141,7 @@ class Collections extends Component {
     return (
       <div className="py-5 my-5">
         <Head>
-          <title>Collections</title>
+          <title>Store</title>
         </Head>
         <div className="py-4">
           {/* Sidebar */}

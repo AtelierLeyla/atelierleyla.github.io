@@ -49,8 +49,8 @@ class Product extends Component {
 
     return (
       <Root>
-        <ClientReview />
-        <SuggestedProducts />
+        {/* <ClientReview /> */}
+        {/* <SuggestedProducts /> */}
         <ExploreBanner />
         <SocialMedia />
         <Footer />

@@ -94,14 +94,15 @@ class Header extends Component {
 
   animate() {
     const { transparent } = this.props;
+    const { showMobileMenu } = this.state;
 
     if (!transparent) {
       return;
     }
 
-    if (window.scrollY > 10) {
+    if (window.scrollY > 300) {
       this.header.current.classList.add("invert");
-    } else {
+    } else if (!showMobileMenu) {
       this.header.current.classList.remove("invert");
     }
   }
@@ -113,7 +114,7 @@ class Header extends Component {
     if (!showMobileMenu) {
       this.header.current.classList.add("invert");
     } else {
-      this.animate();
+      this.handleScroll();
     }
   }
 
@@ -227,7 +228,7 @@ class Header extends Component {
                 ...transitionStyles[state],
               }}
             >
-              <div className="position-absolute top-0 left-0 right-0 h-100vh mobile-menu-inner bg-brand700 d-flex flex-column justify-content-center">
+              <div className="position-absolute top-0 left-0 right-0 h-100vh mobile-menu-inner d-flex flex-column justify-content-center">
                 {mobileMenuLinks.map((item, i) => (
                   <a
                     key={i}

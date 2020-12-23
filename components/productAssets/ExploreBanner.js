@@ -44,7 +44,7 @@ export default class ExploreBanner extends React.Component {
   render() {
     return (
       <div className="py-5 mb-5 explore-banner">
-        <div className="bg-brand300 position-relative py-md-5">
+        <div className="coming-soon-background position-relative py-md-5">
           {/* Image Absolute */}
           <div className="position-md-absolute left-0 bottom-0 right-0">
             <div className="custom-container px-0">
@@ -73,7 +73,7 @@ export default class ExploreBanner extends React.Component {
                 <div className="d-flex">
                   <Link href="/collection" as={process.env.BACKEND_URL + "/collection"}>
                     <a className="d-flex py-3 align-items-center font-color-black borderbottom border-color-black">
-                      <p className="mr-3">Explore products</p>
+                      <p className="mr-3">Coming Soon</p>
                       <img src="/icon/arrow-long-right.svg" />
                     </a>
                   </Link>

@@ -8,14 +8,14 @@ header {
   border-bottom: 1px solid;
   border-color: transparent;
   transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
-    filter 0.01s linear 0.2s;
+    filter 0.2s linear 0.2s;
   filter: invert(1);
 
   &.invert {
-    background-color: #fff;
-    border-color: #000;
+    background-color: $leyla-light;
     filter: none;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0.5px 0.5px $leyla-secondary;
   }
 
   @include small-xs {
@@ -67,5 +67,6 @@ header {
 }
 
 .mobile-menu-inner {
+  background: $leyla-light;
   padding: 7rem 1.5rem;
 }
