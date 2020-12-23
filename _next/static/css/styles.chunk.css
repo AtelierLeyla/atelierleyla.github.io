@@ -1375,13 +1375,13 @@ header {
   background-color: transparent;
   border-bottom: 1px solid;
   border-color: transparent;
-  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, filter 0.01s linear 0.2s;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, filter 0.2s linear 0.2s;
   filter: invert(1); }
   .header.invert {
-    background-color: #fff;
-    border-color: #000;
+    background-color: #fef9f7;
     filter: none;
-    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; }
+    transition: background-color 0.2s ease-in-out;
+    box-shadow: 0.5px 0.5px #bf9789; }
   @media (max-width: 576px) {
     .header {
       padding: 1.25rem 1.5rem 1.25rem 1rem; } }
@@ -1418,6 +1418,7 @@ header {
     transition: all 0.3s ease-in-out; }
 
 .mobile-menu-inner {
+  background: #fef9f7;
   padding: 7rem 1.5rem; }
 
 .checkout-confirm-buttons {
@@ -1522,7 +1523,7 @@ header {
   margin: 0 auto; }
   @media (max-width: 576px) {
     .about-container {
-      padding: 0; } }
+      padding: 1rem; } }
   .about-container .row {
     padding-bottom: 8rem; }
     @media (max-width: 576px) {
@@ -1558,9 +1559,6 @@ header {
   .about-container .about-image img {
     width: 100%;
     object-fit: contain; }
-    @media (max-width: 576px) {
-      .about-container .about-image img {
-        display: none; } }
 
 .login-container {
   min-height: calc(100vh - 430px); }
@@ -1608,17 +1606,11 @@ header {
       background-size: cover; }
 
 .explore-banner .explore-banner--image {
-  background: url("/images/explore-banner.png") center center/cover;
+  background: url("/images/coming-soon.jpg") no-repeat center/80%;
   padding-bottom: 100%; }
-  @media (min-width: 768px) {
-    .explore-banner .explore-banner--image {
-      padding-bottom: 180%; } }
-  @media (min-width: 992px) {
-    .explore-banner .explore-banner--image {
-      padding-bottom: 144%; } }
-  @media (min-width: 1200px) {
-    .explore-banner .explore-banner--image {
-      padding-bottom: 112%; } }
+
+.coming-soon-background {
+  background: #bf9789; }
 
 @media (min-width: 768px) {
   .collection-banner .collection-item:nth-child(odd) {
